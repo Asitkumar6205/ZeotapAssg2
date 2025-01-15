@@ -1,19 +1,17 @@
+require('dotenv').config({ path: '../.env' });
 const express = require('express');
 const OpenAi = require("openai")
 const app = express();
 const port = 8080;
 const cors = require("cors");
-require('dotenv').config();
-const ApiKey = process.env.OPENAI_API_KEY;
-const BotId = process.env.BOT_ID
 app.use(cors());
 app.use(express.json());
 
 const openai = new OpenAi({
-  apiKey: ApiKey
+  apiKey: process.env.OPENAI_API_KEY
 })
 
-const bot_id = BotId
+const bot_id = process.env.BOT_ID
 
 let thread = null;
 
